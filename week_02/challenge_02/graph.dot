@@ -1,0 +1,51 @@
+digraph {
+	compound = "true"
+	newrank = "true"
+	subgraph "root" {
+		"[root] aws_instance.alchdli_odd_ec2 (expand)" [label = "aws_instance.alchdli_odd_ec2", shape = "box"]
+		"[root] aws_internet_gateway.alchdli_odd_igw (expand)" [label = "aws_internet_gateway.alchdli_odd_igw", shape = "box"]
+		"[root] aws_route.alchdli_odd_defaultroute (expand)" [label = "aws_route.alchdli_odd_defaultroute", shape = "box"]
+		"[root] aws_route_table.alchdli_odd_rt (expand)" [label = "aws_route_table.alchdli_odd_rt", shape = "box"]
+		"[root] aws_route_table_association.alchdli_odd_rtassociation1 (expand)" [label = "aws_route_table_association.alchdli_odd_rtassociation1", shape = "box"]
+		"[root] aws_route_table_association.alchdli_odd_rtassociation2 (expand)" [label = "aws_route_table_association.alchdli_odd_rtassociation2", shape = "box"]
+		"[root] aws_security_group.alchdli_odd_sg (expand)" [label = "aws_security_group.alchdli_odd_sg", shape = "box"]
+		"[root] aws_security_group_rule.alchdli_odd_sginbound (expand)" [label = "aws_security_group_rule.alchdli_odd_sginbound", shape = "box"]
+		"[root] aws_security_group_rule.alchdli_odd_sgoutbound (expand)" [label = "aws_security_group_rule.alchdli_odd_sgoutbound", shape = "box"]
+		"[root] aws_subnet.alchdli_odd_subnet1 (expand)" [label = "aws_subnet.alchdli_odd_subnet1", shape = "box"]
+		"[root] aws_subnet.alchdli_odd_subnet2 (expand)" [label = "aws_subnet.alchdli_odd_subnet2", shape = "box"]
+		"[root] aws_vpc.alchdli_odd_vpc (expand)" [label = "aws_vpc.alchdli_odd_vpc", shape = "box"]
+		"[root] data.aws_ami.alchdli_odd__amazonlinux2 (expand)" [label = "data.aws_ami.alchdli_odd__amazonlinux2", shape = "box"]
+		"[root] provider[\"registry.terraform.io/hashicorp/aws\"]" [label = "provider[\"registry.terraform.io/hashicorp/aws\"]", shape = "diamond"]
+		"[root] aws_instance.alchdli_odd_ec2 (expand)" -> "[root] aws_internet_gateway.alchdli_odd_igw (expand)"
+		"[root] aws_instance.alchdli_odd_ec2 (expand)" -> "[root] aws_security_group.alchdli_odd_sg (expand)"
+		"[root] aws_instance.alchdli_odd_ec2 (expand)" -> "[root] aws_subnet.alchdli_odd_subnet1 (expand)"
+		"[root] aws_instance.alchdli_odd_ec2 (expand)" -> "[root] data.aws_ami.alchdli_odd__amazonlinux2 (expand)"
+		"[root] aws_internet_gateway.alchdli_odd_igw (expand)" -> "[root] aws_vpc.alchdli_odd_vpc (expand)"
+		"[root] aws_route.alchdli_odd_defaultroute (expand)" -> "[root] aws_internet_gateway.alchdli_odd_igw (expand)"
+		"[root] aws_route.alchdli_odd_defaultroute (expand)" -> "[root] aws_route_table.alchdli_odd_rt (expand)"
+		"[root] aws_route_table.alchdli_odd_rt (expand)" -> "[root] aws_vpc.alchdli_odd_vpc (expand)"
+		"[root] aws_route_table_association.alchdli_odd_rtassociation1 (expand)" -> "[root] aws_route_table.alchdli_odd_rt (expand)"
+		"[root] aws_route_table_association.alchdli_odd_rtassociation1 (expand)" -> "[root] aws_subnet.alchdli_odd_subnet1 (expand)"
+		"[root] aws_route_table_association.alchdli_odd_rtassociation2 (expand)" -> "[root] aws_route_table.alchdli_odd_rt (expand)"
+		"[root] aws_route_table_association.alchdli_odd_rtassociation2 (expand)" -> "[root] aws_subnet.alchdli_odd_subnet2 (expand)"
+		"[root] aws_security_group.alchdli_odd_sg (expand)" -> "[root] aws_vpc.alchdli_odd_vpc (expand)"
+		"[root] aws_security_group_rule.alchdli_odd_sginbound (expand)" -> "[root] aws_security_group.alchdli_odd_sg (expand)"
+		"[root] aws_security_group_rule.alchdli_odd_sgoutbound (expand)" -> "[root] aws_security_group.alchdli_odd_sg (expand)"
+		"[root] aws_subnet.alchdli_odd_subnet1 (expand)" -> "[root] aws_vpc.alchdli_odd_vpc (expand)"
+		"[root] aws_subnet.alchdli_odd_subnet2 (expand)" -> "[root] aws_vpc.alchdli_odd_vpc (expand)"
+		"[root] aws_vpc.alchdli_odd_vpc (expand)" -> "[root] provider[\"registry.terraform.io/hashicorp/aws\"]"
+		"[root] data.aws_ami.alchdli_odd__amazonlinux2 (expand)" -> "[root] provider[\"registry.terraform.io/hashicorp/aws\"]"
+		"[root] output.alchdli_odd_ec2_public_ip (expand)" -> "[root] aws_instance.alchdli_odd_ec2 (expand)"
+		"[root] output.aws_vpc_id (expand)" -> "[root] aws_vpc.alchdli_odd_vpc (expand)"
+		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_instance.alchdli_odd_ec2 (expand)"
+		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_route.alchdli_odd_defaultroute (expand)"
+		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_route_table_association.alchdli_odd_rtassociation1 (expand)"
+		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_route_table_association.alchdli_odd_rtassociation2 (expand)"
+		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_security_group_rule.alchdli_odd_sginbound (expand)"
+		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_security_group_rule.alchdli_odd_sgoutbound (expand)"
+		"[root] root" -> "[root] output.alchdli_odd_ec2_public_ip (expand)"
+		"[root] root" -> "[root] output.aws_vpc_id (expand)"
+		"[root] root" -> "[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)"
+	}
+}
+
